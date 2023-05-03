@@ -25,7 +25,9 @@ controller.create = async (req, res) => {
             lastOilChange: lastOilChange,
             lastCoolanChange: lastCoolanChange,
             tunedMayor: tunedMayor,
-            tunedMinor: tunedMinor
+            tunedMinor: tunedMinor,
+            errorRecord: errorRecord,
+            user_id: user_id
 
         });
 

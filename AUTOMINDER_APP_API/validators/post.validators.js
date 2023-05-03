@@ -46,6 +46,10 @@ validators.createPostValidator = [
     body("tunedMinor")
         .notEmpty()
             .withMessage("Not null tunedMinor"),
+    body("errorRecord")
+        .notEmpty()
+            .withMessage("Not null errorRecord"),
+            
 
             
 ];

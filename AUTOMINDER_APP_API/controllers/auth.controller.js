@@ -27,7 +27,6 @@ controller.register = async (req, res) => {
             email:email, 
             username:username, 
             password:password,
-            description: description,
             roles: [ROLES.USER]
         });
 

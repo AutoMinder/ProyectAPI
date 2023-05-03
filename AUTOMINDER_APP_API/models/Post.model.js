@@ -70,11 +70,23 @@ const PostSchema = new Schema({
         requiere: false
     },
 
+    errorRecord:{
+        type: [String],
+        default: []
+
+    },
+
+    vin:{
+        type: String,
+        trim: true,
+        requiere: false
+    },
+
     hidden: {
         type: Boolean,
         default: false,
     },
-    user: {
+    user_id: {
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
