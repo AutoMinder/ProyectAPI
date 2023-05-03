@@ -4,12 +4,8 @@
  * Module dependencies.
  */
 
-require("dotenv").config();
-
 var app = require('../app');
-
-var debug = require('debug')('autominder-app-api:server');
-
+var debug = require('debug')('autominder-api:server');
 var http = require('http');
 
 /**

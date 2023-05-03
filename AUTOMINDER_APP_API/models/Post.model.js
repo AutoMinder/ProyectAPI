@@ -35,13 +35,13 @@ const PostSchema = new Schema({
     },
 
     kilometers:{
-        type: Float32Array,
+        type: String,
         trim: true,
         requiere: false
     },
 
     kilometersDate:{
-        type: Date,
+        type: Number,
         trim: true,
         requiere: false
     },

@@ -5,7 +5,11 @@ const dbhost =  process.env.DBHOST || "localhost";
 const dbport = process.env.DBPORT || "27017";
 const dbname = process.env.DBNAME || "autominderapp";
 
-const dburi = process.env.DBURI || `mongodb://${dbhost}:${dbport}/${dbname}`;
+const dburi ="localhost:3500";
+
+//const dburi =`mongodb://${dbhost}:${dbport}/${dbname}`;
+
+// process.env.DBURI ||     URI A COLOCAR EN dburi 
 
 const connect = async () => {
     try{
