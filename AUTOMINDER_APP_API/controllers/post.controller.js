@@ -6,7 +6,7 @@ const controller = {};
 
 controller.create = async (req, res) => {
     try{
-        const { title, description, image } = req.body;
+        const { title, marca, modelo, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolanChange, tunedMayor, tunedMinor, errorRecord, user_id} = req.body;
 
         // const { username } = req.user; Codigo reemplazado en clase 26
         const { _id: userId } = req.user; //    Se asume la existencia del usuario dada las verificaciones 
