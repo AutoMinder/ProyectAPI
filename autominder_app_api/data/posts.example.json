@@ -1,0 +1,62 @@
+[
+    {
+      "id": "post_01",
+      "title": "Honda Car",
+      "marca": "Honda",
+      "modelo": "Civic",
+      "year": "2023",
+      "nextMaintenance": "2023-05-25",
+      "kilometers": "32,500",
+      "kilometersDate": "2023-04-25",
+      "lastOilChange": "2022-12-30",
+      "lastCoolanChange": "2023-04-25",
+      "tunedMayor": "2022-06-25",
+      "tunedMinor": "2022-09-25"
+    },
+
+    {
+      "id": "post_02",
+      "title": "Ford Car",
+      "marca": "Ford",
+      "modelo": "Escape",
+      "year": "2023",
+      "nextMaintenance": "2023-05-25",
+      "kilometers": "32,500",
+      "kilometersDate": "2023-04-25",
+      "lastOilChange": "2022-12-30",
+      "lastCoolanChange": "2023-04-25",
+      "tunedMayor": "2022-06-25",
+      "tunedMinor": "2022-09-25"
+    },
+
+    {
+      "id": "post_03",
+      "title": "Hyundai Car",
+      "marca": "Hyundai",
+      "modelo": "Elantra",
+      "year": "2023",
+      "nextMaintenance": "2023-05-25",
+      "kilometers": "32,500",
+      "kilometersDate": "2023-04-25",
+      "lastOilChange": "2022-12-30",
+      "lastCoolanChange": "2023-04-25",
+      "tunedMayor": "2022-06-25",
+      "tunedMinor": "2022-09-25"
+    },
+
+
+    {
+      "id": "post_04",
+      "title": "Nissan Car",
+      "marca": "Nissan",
+      "modelo": "Centra",
+      "year": "2023",
+      "nextMaintenance": "2023-05-25",
+      "kilometers": "32,500",
+      "kilometersDate": "2023-04-25",
+      "lastOilChange": "2022-12-30",
+      "lastCoolanChange": "2023-04-25",
+      "tunedMayor": "2022-06-25",
+      "tunedMinor": "2022-09-25"
+    }
+  ]
