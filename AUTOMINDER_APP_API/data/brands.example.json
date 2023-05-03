@@ -1,0 +1,148 @@
+{
+    "brands": [
+      {
+        "name": "Honda",
+        "models": [
+          "Accord",
+          "Civic",
+          "CR-V",
+          "Pilot",
+          "Odyssey",
+          "Ridgeline"
+        ]
+      },
+      {
+        "name": "Ford",
+        "models": [
+          "Mustang",
+          "F-150",
+          "Explorer",
+          "Escape",
+          "Edge",
+          "Ranger"
+        ]
+      },
+      {
+        "name": "Hyundai",
+        "models": [
+          "Elantra",
+          "Sonata",
+          "Tucson",
+          "Santa Fe",
+          "Kona",
+          "Palisade"
+        ]
+      },
+      {
+        "name": "Mitsubishi",
+        "models": [
+          "Outlander",
+          "Eclipse Cross",
+          "Mirage",
+          "ASX",
+          "Pajero Sport",
+          "Triton"
+        ]
+      },
+      {
+        "name": "Volkswagen",
+        "models": [
+          "Golf",
+          "Jetta",
+          "Passat",
+          "Tiguan",
+          "Atlas",
+          "Touareg"
+        ]
+      },
+      {
+        "name": "BMW",
+        "models": [
+          "3 Series",
+          "5 Series",
+          "7 Series",
+          "X3",
+          "X5",
+          "X7"
+        ]
+      },
+      {
+        "name": "Volvo",
+        "models": [
+          "S60",
+          "S90",
+          "XC40",
+          "XC60",
+          "XC90",
+          "V90"
+        ]
+      },
+      {
+        "name": "Toyota",
+        "models": [
+          "Corolla",
+          "Camry",
+          "RAV4",
+          "Highlander",
+          "4Runner",
+          "Tacoma"
+        ]
+      },
+      {
+        "name": "Kia",
+        "models": [
+          "Optima",
+          "Sorento",
+          "Soul",
+          "Sportage",
+          "Stinger",
+          "Telluride"
+        ]
+      },
+      {
+        "name": "Nissan",
+        "models": [
+          "Altima",
+          "Maxima",
+          "Sentra",
+          "Rogue",
+          "Pathfinder",
+          "Titan"
+        ]
+      },
+      {
+        "name": "Audi",
+        "models": [
+          "A3",
+          "A4",
+          "A6",
+          "Q5",
+          "Q7",
+          "RS5"
+        ]
+      },
+      {
+        "name": "Jeep",
+        "models": [
+          "Wrangler",
+          "Grand Cherokee",
+          "Cherokee",
+          "Compass",
+          "Gladiator",
+          "Renegade"
+        ]
+      },
+      {
+        "name": "Dodge",
+        "models": [
+          "Challenger",
+          "Charger",
+          "Durango",
+          "Journey",
+          "Grand Caravan",
+          "Ram 1500"
+        ]
+      }
+    ]
+  }
+  
