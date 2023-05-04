@@ -1,30 +1,108 @@
 {
-    "brands": [
-      {
-        "name": "Honda",
-        "models": [
-          "Accord",
+    "car": {
+
+      "country": "Japan",
+      
+      "brand": {
+
+        "company": "Toyota",
+
+        "model": {
+
+          "name": [
+            "Yaris",
+            "Corolla",
+            "Camry",
+            "Rush",
+            "RAV4",
+            "Fortuner",
+            "Highlander",
+            "4Runner",
+            "Land Cruisier Prado",
+            "Land Cruisier",
+            "Hiux",
+            "Tacoma",
+            "Tundra"
+          ]
+        }
+      },
+
+        "company": "Honda",
+        "model": 
+        [
+          "City",
           "Civic",
+          "Accord",
+          "HR-V",
           "CR-V",
           "Pilot",
+          "Passport",
           "Odyssey",
           "Ridgeline"
         ]
       },
+
       {
-        "name": "Ford",
-        "models": [
-          "Mustang",
-          "F-150",
-          "Explorer",
-          "Escape",
-          "Edge",
-          "Ranger"
+        "company": "Nissan",
+        "model": 
+        [
+          "Versa",
+          "Sentra",
+          "Altima",
+          "Maxima",
+          "Kicks",
+          "Rogue",
+          "Murano",
+          "Pathfinder",
+          "Frontier",
+          "Titan"
+        ]
+      },
+
+      {
+        "company": "Mitsubishi",
+        "model": 
+        [
+          "Outlander",
+          "Eclipse Cross",
+          "Mirage",
+          "ASX",
+          "Pajero Sport",
+          "Triton/L200"
+        ]
+      },
+
+      {
+        "company": "Mazda",
+        "model": 
+        [
+          "2",
+          "3",
+          "6",
+          "CX-3",
+          "CX-30",
+          "CX-5",
+          "CX-50",
+          "CX-7",
+          "CX-9"
         ]
       },
       {
-        "name": "Hyundai",
-        "models": [
+        "company": "Ford",
+        "model": [
+          "Fiesta",
+          "Mustang",
+          "Ranger",
+          "F-150",
+          "Escape",
+          "Edge",
+          "Explorer",
+          "Expedition"
+        ]
+      },
+      {
+        "company": "Hyundai",
+        "model": [
           "Elantra",
           "Sonata",
           "Tucson",
@@ -33,20 +111,10 @@
           "Palisade"
         ]
       },
+      
       {
-        "name": "Mitsubishi",
-        "models": [
-          "Outlander",
-          "Eclipse Cross",
-          "Mirage",
-          "ASX",
-          "Pajero Sport",
-          "Triton"
-        ]
-      },
-      {
-        "name": "Volkswagen",
-        "models": [
+        "company": "Volkswagen",
+        "model": [
           "Golf",
           "Jetta",
           "Passat",
@@ -56,8 +124,8 @@
         ]
       },
       {
-        "name": "BMW",
-        "models": [
+        "company": "BMW",
+        "model": [
           "3 Series",
           "5 Series",
           "7 Series",
@@ -67,8 +135,8 @@
         ]
       },
       {
-        "name": "Volvo",
-        "models": [
+        "company": "Volvo",
+        "model": [
           "S60",
           "S90",
           "XC40",
@@ -77,20 +145,10 @@
           "V90"
         ]
       },
+      
       {
-        "name": "Toyota",
-        "models": [
-          "Corolla",
-          "Camry",
-          "RAV4",
-          "Highlander",
-          "4Runner",
-          "Tacoma"
-        ]
-      },
-      {
-        "name": "Kia",
-        "models": [
+        "company": "Kia",
+        "model": [
           "Optima",
           "Sorento",
           "Soul",
@@ -99,20 +157,10 @@
           "Telluride"
         ]
       },
+      
       {
-        "name": "Nissan",
-        "models": [
-          "Altima",
-          "Maxima",
-          "Sentra",
-          "Rogue",
-          "Pathfinder",
-          "Titan"
-        ]
-      },
-      {
-        "name": "Audi",
-        "models": [
+        "company": "Audi",
+        "model": [
           "A3",
           "A4",
           "A6",
@@ -122,8 +170,8 @@
         ]
       },
       {
-        "name": "Jeep",
-        "models": [
+        "company": "Jeep",
+        "model": [
           "Wrangler",
           "Grand Cherokee",
           "Cherokee",
@@ -133,8 +181,8 @@
         ]
       },
       {
-        "name": "Dodge",
-        "models": [
+        "company": "Dodge",
+        "model": [
           "Challenger",
           "Charger",
           "Durango",
@@ -143,6 +191,6 @@
           "Ram 1500"
         ]
       }
-    ]
+    }
   }
-  
+}
