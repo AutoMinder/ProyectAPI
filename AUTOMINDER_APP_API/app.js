@@ -12,7 +12,7 @@ var app = express();
 
 //mongoose.connect();
 
-console.log("Conexion momentanea sin MONGODB exitosa.");
+console.log("app.js: Localhost connection has been completed!");
 
 app.use(cors());
 app.use(logger('dev'));
