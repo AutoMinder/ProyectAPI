@@ -5,27 +5,33 @@ const dbhost =  process.env.DBHOST || "localhost";
 const dbport = process.env.DBPORT || "27017";
 const dbname = process.env.DBNAME || "autominder-app";
 
-//  const dburi ="localhost:3500";  USAR SOLAMENTE PARA TESTEAR LOCALMENTE LA CONEXION DE LA API
+debug("Starting connection to database...");
 
-const dburi =`mongodb://${dbhost}:${dbport}/${dbname}`;
+// const dburi ="localhost:3500";  // USAR SOLAMENTE PARA TESTEAR LOCALMENTE LA CONEXION DE LA API CON EL LOCALHOST DE LA PC.
 
-// process.env.DBURI || URI A COLOCAR EN dburi 
+const dburi =`mongodb://${dbhost}:${dbport}/${dbname}`; // USAR PARA TESTEAR LA CONEXION A LA BASE CON DOCKER CONTENIENDO A MONGO ACTIVAMENTE.
+
+// process.env.DBURI || USAR COMO URI DE CONEXION A BASE MONGO MONTADA EN LINEA
+
+debug("Connection string received, trying connection..."); 
+
 
 const connect = async () => {
     
     try{
         
         await Mongoose.connect(dburi);  // Intento de conexion
-        
-        debug(`Succesfuly connected to Mongo database > ${dburi}!`); //Confirmación en consola de conexión
+        debug(`Succesfuly connected to Mongo database!`); //Confirmación en consola de conexión
 
     } catch (error){
        
-        debug("ERROR: connecting to database has not been possible. Check mongoose.js file.");
+        debug("ERROR: Connecting to database has not been possible.");
         
         process.exit(1);
 
     }
+
+    
 };
 
 module.exports = {

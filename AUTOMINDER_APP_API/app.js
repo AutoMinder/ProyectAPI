@@ -4,15 +4,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 
-//const mongoose = require('./config/mongoose');
+const mongoose = require('./config/mongoose');
 
 const apiRouter = require("./routes/api/index.router");
 
 var app = express();
 
-//mongoose.connect();
+mongoose.connect();
 
-console.log("app.js: Localhost connection has been completed!");
+// console.log("app.js: Localhost connection has been completed!");
 
 app.use(cors());
 app.use(logger('dev'));
