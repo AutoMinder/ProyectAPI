@@ -7,7 +7,7 @@ const CarSchema = new Schema(
         vin:{
             type: String,
             trim: true,
-            requiere: false
+            required: false
         },
 
         car_name: {
