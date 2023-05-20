@@ -37,7 +37,7 @@ const PostSchema = new Schema(
     kilometers:{
         type: String,
         trim: true,
-        requiere: false
+        requiere: true
     },
 
     kilometersDate:{
