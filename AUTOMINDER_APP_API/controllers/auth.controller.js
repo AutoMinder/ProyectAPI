@@ -22,7 +22,6 @@ controller.register = async (req, res) => {
         debug({username, email, password, description});
 
         //Form de encriptar
-
         const newUser = new User({
             email:email, 
             username:username, 
@@ -30,24 +29,24 @@ controller.register = async (req, res) => {
             roles: [ROLES.USER]
         });
 
-        switch (newUser.email) {
-            case "00124221@uca.edu.sv":
-                    newUser.roles = [...newUser.roles, ROLES.ADMIN];
-                break;
-            case "00083521@uca.edu.sv":
-                newUser.roles = [...newUser.roles, ROLES.ADMIN];
-            break;  
-            case "00008821@uca.edu.sv":
-                    newUser.roles = [...newUser.roles, ROLES.ADMIN];
-            break;
-            case "00077321@uca.edu.sv":
-                    newUser.roles = [...newUser.roles, ROLES.ADMIN];
-            break;
+        // switch (newUser.email) {
+        //     case "00124221@uca.edu.sv":
+        //             newUser.roles = [...newUser.roles, ROLES.ADMIN];
+        //         break;
+        //     case "00083521@uca.edu.sv":
+        //         newUser.roles = [...newUser.roles, ROLES.ADMIN];
+        //     break;  
+        //     case "00008821@uca.edu.sv":
+        //             newUser.roles = [...newUser.roles, ROLES.ADMIN];
+        //     break;
+        //     case "00077321@uca.edu.sv":
+        //             newUser.roles = [...newUser.roles, ROLES.ADMIN];
+        //     break;
             
                 
-            default:
-                break;
-        }
+        //     default:
+        //         break;
+        // }
 
         await newUser.save();
 
