@@ -11,7 +11,9 @@ const runValidations = require('../../validators/index.middleware');
 
 const {authentication, authorization} = require('../../middlewares/auth.middlewares');
 
-router.get("/", postController.findAll);
+router.get("/", postController.findAll);    
+
+router.get("/post", postController.findAll);
 
 router.get("/own",  authentication, 
                     postController.findOwn);

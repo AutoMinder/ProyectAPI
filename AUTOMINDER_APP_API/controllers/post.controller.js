@@ -5,6 +5,7 @@ const User = require("../models/User.model");
 const controller = {};
 
 controller.create = async (req, res) => {
+
     try{
         const { title, marca, modelo, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolanChange, tunedMayor, tunedMinor, errorRecord, user_id} = req.body;
 
@@ -50,8 +51,7 @@ controller.findAll = async (req, res) => {
         // Declarado asi por cuestiones de estetica, no es funcional
         const posts = await Post
                                 .find({ hidden: false })
-                                .populate("user", "username email")
-                                .populate("likes", "username email");
+                                .populate("user", "username email");
 
         return res.status(200).json({ posts });
 

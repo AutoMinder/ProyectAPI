@@ -8,8 +8,10 @@ const dbname = process.env.DBNAME || "autominder-app";
 
 debug("Starting connection to database...");
 
-// const dburi ="localhost:3500";  // USAR SOLAMENTE PARA TESTEAR LOCALMENTE LA CONEXION DE LA API CON EL LOCALHOST DE LA PC.
+//  const dburi ="localhost:3500";  // USAR SOLAMENTE PARA TESTEAR LOCALMENTE LA CONEXION DE LA API CON EL LOCALHOST DE LA PC.
 
+//  NOTA: Puerto de la API no es el mismo del contenedor de la base. 
+//  Igualarlos genera conflicto en la escucha.
 const dburi =`mongodb://${dbhost}:${dbport}/${dbname}`; // USAR PARA TESTEAR LA CONEXION A LA BASE CON DOCKER CONTENIENDO A MONGO ACTIVAMENTE.
 
 // process.env.DBURI || USAR COMO URI DE CONEXION A BASE MONGO MONTADA EN LINEA
