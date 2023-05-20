@@ -16,7 +16,7 @@ router.post("/signup",
     authController.register
 );
 
-router.post("/login", authController.login);
+router.post("/signin", authController.login);
 
 router.get("/whoami", authentication, authController.whoami)
 

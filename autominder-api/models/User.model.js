@@ -17,10 +17,11 @@ const Schema = Mongoose.Schema;
 //Los post que este publica, por ejemplo
 
 const UserSchema = new Schema({
-    
     email: { type: String, required: true, trim: true, unique: true },
 
     username: { type: String, required: true, trim: true, unique: true },
+
+    description: { type: String, trim: true, default: "Descripción no definida por el usuario."},
 
     hashedpassword: { type: String, required: true},
 

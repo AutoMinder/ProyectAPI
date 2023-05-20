@@ -1,19 +1,20 @@
-//  DEPENDENCIES IMPORTATION
 const express = require("express");
+
 const router = express.Router();
 
-//  LOCAL DEPENDENCIES IMPORTATION
 const ROLES = require("../../data/roles.constants.json");
-const posts = require('../../data/posts.example.json'); //  TODO: Ruta de datos quemados.
+
+//Usada antes con datos quemados
+const posts = require('../../data/posts.example.json');
+
 const postController = require('../../controllers/post.controller');
+
 const postValidators = require('../../validators/post.validators');
 const runValidations = require('../../validators/index.middleware');
 
 const {authentication, authorization} = require('../../middlewares/auth.middlewares');
 
-router.get("/", postController.findAll);    
-
-router.get("/post", postController.findAll);
+router.get("/", postController.findAll);
 
 router.get("/own",  authentication, 
                     postController.findOwn);

@@ -3,14 +3,17 @@
 /**
  * Module dependencies.
  */
+
 require("dotenv").config();
+
 var app = require('../app');
-var debug = require('debug')('autominder-app-api:server');
+var debug = require('debug')('autominder-api:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
+
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -25,8 +28,8 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
-server.on('An error ocurred while listening to database.', onError);
-server.on('Listening to database active.', onListening);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -72,7 +75,6 @@ function onError(error) {
       process.exit(1);
       break;
     default:
-      debug("An unknown error occurred while listening to database.");
       throw error;
   }
 }
@@ -86,5 +88,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Succesfully listening on ' + bind);
+  debug('Listening on ' + bind);
 }

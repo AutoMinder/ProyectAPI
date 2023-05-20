@@ -1,13 +1,12 @@
-const Post = require('../models/Car.model');
+const Post = require('../models/Post.model');
 const debug = require('debug')('app:post.controller');
 const User = require("../models/User.model");
 
 const controller = {};
 
 controller.create = async (req, res) => {
-
     try{
-        const { title, marca, modelo, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolanChange, tunedMayor, tunedMinor, errorRecord, user_id} = req.body;
+        const { title, marca, modelo, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolanChange, tunedMayor, tunedMinor, errorRecord} = req.body;
 
         // const { username } = req.user; Codigo reemplazado en clase 26
         const { _id: userId } = req.user; //    Se asume la existencia del usuario dada las verificaciones 
@@ -28,8 +27,7 @@ controller.create = async (req, res) => {
             tunedMayor: tunedMayor,
             tunedMinor: tunedMinor,
             errorRecord: errorRecord,
-            user_id: user_id
-
+            user_id: userId
         });
 
         const newPost = await post.save();
@@ -51,7 +49,8 @@ controller.findAll = async (req, res) => {
         // Declarado asi por cuestiones de estetica, no es funcional
         const posts = await Post
                                 .find({ hidden: false })
-                                .populate("user", "username email");
+                                .populate("user", "username email")
+                                
 
         return res.status(200).json({ posts });
 
@@ -70,7 +69,7 @@ controller.findOwn = async (req, res) => {
         const posts = await Post
                         .find({ user: userId })
                         .populate("user", "username email")
-                        .populate("likes", "username email");
+                        
 
         return res.status(200).json({ posts });
 
@@ -108,7 +107,7 @@ controller.findOneById = async (req, res) => {
         const post = await Post
                         .findOne({_id: identifier, hidden: false })
                         .populate("user", "username email")
-                        .populate("likes", "username email");
+                        
 
         if(!post) {
             return res.status(404).json({ message: 'Post not found' });

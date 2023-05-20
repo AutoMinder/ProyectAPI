@@ -12,6 +12,7 @@ validator.register = [
 
     body('password').notEmpty().withMessage('Password is required').matches(passwordRegex).withMessage('Password must be between 8 and 32 characters, must contain at least one uppercase letter, one lowercase letter and one number'),
 
+    body('description').optional().isString().default("Descripcion no definida.")
 ]
 
 module.exports = validator;
