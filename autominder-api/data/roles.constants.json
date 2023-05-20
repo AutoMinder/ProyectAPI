@@ -1,4 +1,5 @@
 {
+    "SYS_ADMIN": "sys_admin",
     "ADMIN": "admin",
     "USER": "user"
 }

@@ -21,8 +21,6 @@ const UserSchema = new Schema({
 
     username: { type: String, required: true, trim: true, unique: true },
 
-    description: { type: String, trim: true, default: "Descripción no definida por el usuario."},
-
     hashedpassword: { type: String, required: true},
 
     salt:{ type: String},
