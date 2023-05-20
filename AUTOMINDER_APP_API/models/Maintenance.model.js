@@ -3,16 +3,10 @@ const Mongoose = require('mongoose');
 const Schema = Mongoose.Schema;
 
 const MaintenanceSchema = new Schema(
-    {
-        vin:{
-            type: String,
-            trim: true,
-            requiere: false
-        },
-        
+    {        
         nextMaintenance:{
             type: Date,
-            trim: true,
+            trim: true, 
             requiere: false
         },
 
