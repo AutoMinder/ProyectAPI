@@ -5,7 +5,11 @@ const dbhost =  process.env.DBHOST || "localhost";
 const dbport = process.env.DBPORT || "27017";
 const dbname = process.env.DBNAME || "autominderproject";
 
-const dburi = process.env.DBURI || `mongodb://${dbhost}:${dbport}/${dbname}`;
+Mongoose.set('strictQuery', true);
+
+const dburi = process.env.DBURI || `mongodb://${dbhost}:${dbport}/${dbname}-test`;
+
+//const dburi = `mongodb://${dbhost}:${dbport}/${dbname}-test`;
 
 const connect = async () => {
     try{

@@ -6,7 +6,7 @@ const controller = {};
 
 controller.create = async (req, res) => {
     try{
-        const { title, marca, modelo, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolanChange, tunedMayor, tunedMinor, errorRecord} = req.body;
+        const { car_name, brand, model, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolantChange, mayorTuning, minorTuning, errorRecord} = req.body;
 
         // const { username } = req.user; Codigo reemplazado en clase 26
         const { _id: userId } = req.user; //    Se asume la existencia del usuario dada las verificaciones 
@@ -15,19 +15,19 @@ controller.create = async (req, res) => {
         // debug(`Creating post for user ${username}`); Eliminacion por parte de Douglas por error de servidor
 
         const post = new Post({
-            title: title,
-            marca: marca,
-            modelo: modelo,
+            car_name: car_name,
+            brand: brand,
+            model: model,
             year: year,
             nextMaintenance: nextMaintenance,
             kilometers: kilometers,
             kilometersDate: kilometersDate,
             lastOilChange: lastOilChange,
-            lastCoolanChange: lastCoolanChange,
-            tunedMayor: tunedMayor,
-            tunedMinor: tunedMinor,
+            lastCoolantChange: lastCoolantChange,
+            mayorTuning: mayorTuning,
+            minorTuning: minorTuning,
             errorRecord: errorRecord,
-            user_id: userId
+            user: userId
         });
 
         const newPost = await post.save();
@@ -35,6 +35,7 @@ controller.create = async (req, res) => {
         if(!newPost) {
             return res.status(409).json({ message: 'Error creating post' });
         }
+        
 
         return res.status(201).json(newPost);   
     } catch(error){

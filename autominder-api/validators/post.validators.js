@@ -4,7 +4,7 @@ const validators = {};
 
 validators.createPostValidator = [
     body("vin"),
-    body("carn_name")
+    body("car_name")
         .notEmpty()
             .withMessage("car_name is required"),
     body("brand")
@@ -16,7 +16,7 @@ validators.createPostValidator = [
     body("year")
         .notEmpty()
             .withMessage("year is required"),
-    body("kilometer")
+    body("kilometers")
         .notEmpty()
             .withMessage("Not null kilometers"),
     body("kilometersDate")
