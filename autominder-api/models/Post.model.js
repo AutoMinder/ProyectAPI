@@ -41,7 +41,7 @@ const PostSchema = new Schema(
     },
 
     kilometersDate:{
-        type: Number,
+        type: Date,
         trim: true,
         requiere: false
     },

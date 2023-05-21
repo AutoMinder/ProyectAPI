@@ -11,7 +11,7 @@ const ROLES = require('../data/roles.constants.json');
 
 controller.register = async (req, res) => {
     try{
-        const { email, username, password, description } = req.body;
+        const { email, username, password} = req.body;
 
         const user = await User.findOne({  $or: [ { email:email }, { username:username } ] });
 
@@ -19,7 +19,7 @@ controller.register = async (req, res) => {
             return res.status(409).json({message: 'User already exists'});
         }
 
-        debug({username, email, password, description});
+        debug({username, email, password});
 
         //Form de encriptar
 
@@ -27,7 +27,6 @@ controller.register = async (req, res) => {
             email:email, 
             username:username, 
             password:password,
-            description: description,
             roles: [ROLES.USER]
         });
 
@@ -84,9 +83,9 @@ controller.login = async (req, res) => {
 controller.whoami = async (req, res) => {
     try {
         
-        const { _id, username, email, roles, description } = req.user;
+        const { _id, username, email, roles} = req.user;
 
-        return res.status(200).json( { _id, username, email, roles, description } );
+        return res.status(200).json( { _id, username, email, roles} );
     } catch (error) {
         debug({error});
         return res.status(500).json({message: "Error in WhoAmI function"});
