@@ -50,7 +50,7 @@ controller.findAll = async (req, res) => {
         // Declarado asi por cuestiones de estetica, no es funcional
         const posts = await Post
                                 .find({ hidden: false })
-                                .populate("user", "username email", "roles")
+                                .populate("user", "username email")
                                 
 
         return res.status(200).json({ posts });
