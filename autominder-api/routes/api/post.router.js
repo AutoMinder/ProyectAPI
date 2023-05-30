@@ -36,27 +36,27 @@ router.get("/:identifier",
 //Se debe tomar como una funcionaldiad de usuario
 router.post("/", 
     authentication,
-    authorization(ROLES.USER),
+    authorization(ROLES.USER, ROLES.ADMIN),
     postValidators.createPostValidator,
     runValidations,  
     postController.create);
 
 router.patch("/visibility/:identifier", authentication,
-                                        authorization(ROLES.USER),
+                                        authorization(ROLES.USER, ROLES.ADMIN),
                                         postValidators.findPostByIdValidator,
                                         runValidations,
                                         postController.togglePostVisibility
 );
 
 router.patch("/like/:identifier",   authentication,
-                                    authorization(ROLES.USER),
+                                    authorization(ROLES.USER, ROLES.ADMIN),
                                     postValidators.findPostByIdValidator,
                                     runValidations,
                                     postController.togglePostLike
 );
 
 router.patch("/save/:identifier",   authentication,
-                                    authorization(ROLES.USER),
+                                    authorization(ROLES.USER, ROLES.ADMIN),
                                     postValidators.findPostByIdValidator,
                                     runValidations,
                                     postController.toggleSavedPosts
