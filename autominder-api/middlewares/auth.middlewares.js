@@ -85,13 +85,13 @@ middlewares.authentication = async (req, res, next) => {
 
 
 
-middlewares.authorization = (roleRequired=ROLES.SYSADMIN) => {
+middlewares.authorization = (roleRequired=ROLES.SYSADMIN, roleRequired2=ROLES.ADMIN ) => {
     return (req, res, next) => {
         try {
             
             const {roles = []} = req.user;
 
-            const roleIndex = roles.findIndex(role => (role === roleRequired || role === ROLES.SYSADMIN));
+            const roleIndex = roles.findIndex(role => (role === roleRequired || role === roleRequired2 || role === ROLES.SYSADMIN));
 
             if(roleIndex < 0){
                 return res.status(403).json({message: 'Forbidden'});

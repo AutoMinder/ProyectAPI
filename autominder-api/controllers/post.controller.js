@@ -6,7 +6,7 @@ const controller = {};
 
 controller.create = async (req, res) => {
     try{
-        const { car_name, brand, model, year, nextMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolantChange, mayorTuning, minorTuning, errorRecord} = req.body;
+        const { vin, car_name, brand, model, year, lastMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolantChange, mayorTuning, minorTuning, errorRecord} = req.body;
 
         // const { username } = req.user; Codigo reemplazado en clase 26
         const { _id: userId } = req.user; //    Se asume la existencia del usuario dada las verificaciones 
@@ -15,15 +15,24 @@ controller.create = async (req, res) => {
         // debug(`Creating post for user ${username}`); Eliminacion por parte de Douglas por error de servidor
 
         const post = new Post({
+
+            vin: vin,
+
             car_name: car_name,
             brand: brand,
             model: model,
             year: year,
-            nextMaintenance: nextMaintenance,
+
+            lastMaintenance: lastMaintenance,
+    
             kilometers: kilometers,
             kilometersDate: kilometersDate,
+
+
             lastOilChange: lastOilChange,
+
             lastCoolantChange: lastCoolantChange,
+
             mayorTuning: mayorTuning,
             minorTuning: minorTuning,
             errorRecord: errorRecord,
@@ -61,6 +70,25 @@ controller.findAll = async (req, res) => {
         return res.status(500).json({ message: 'Error interno de servidor' });
     }
 }
+
+controller.findAllHidden = async (req, res) => {
+    try {
+        const posts = await Post
+                                .find({ hidden: true })
+                                .populate("user", "username email")
+                                
+
+        return res.status(200).json({ posts });
+    }catch (error) {
+        
+        debug({error});
+        return res.status(500).json({ message: 'Error interno de servidor' });
+    }
+}
+
+
+
+
 
 controller.findOwn = async (req, res) => {
     try {
@@ -122,6 +150,8 @@ controller.findOneById = async (req, res) => {
     }
 }
 
+
+
 controller.getOwnSavedPosts = async (req, res) => {
     try {
         
@@ -167,38 +197,6 @@ controller.togglePostVisibility = async (req, res) => {
     }
 };
 
-controller.togglePostLike = async (req, res) => {
-    try {
-        
-        const { identifier: postId } = req.params;
-
-        const { _id: userId } = req.user;
-
-        const post = await Post.findOne( { _id: postId, hidden: false });
-
-        if(!post)
-        {
-            return res.status(404).json({ error: "Post no encontrado "});
-        }
-
-        const index = post.likes.findIndex( _userId => _userId.equals(userId));
-
-        if(index >= 0 ){
-            post.likes = post.likes.filter(_userId => !_userId.equals(userId));
-        }
-        else {
-            post.likes = [ ...post.likes, userId ];
-        }
-
-        await post.save();
-        
-        return res.status(200).json({ message: "Post actualizado exitosamente!" });
-
-    } catch (error) {
-        debug({error});
-        return res.status(500).json({ message: 'Error interno de servidor(togglePostLike)' });
-    }
-}
 
 controller.toggleSavedPosts = async (req, res) => {
     try {

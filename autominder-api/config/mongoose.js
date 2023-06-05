@@ -14,7 +14,6 @@ const dburi = process.env.DBURI || `mongodb://${dbhost}:${dbport}/${dbname}-test
 const connect = async () => {
     try{
         await Mongoose.connect(dburi);
-        debug(`Connected to ${dburi}`);
     }catch{
         debug("Error connecting to database");
         process.exit(1);
