@@ -16,6 +16,8 @@ const {authentication, authorization} = require('../../middlewares/auth.middlewa
 
 router.get("/", postController.findAll);
 
+router.get("/hidden",  postController.findAllHidden);
+
 router.get("/own",  authentication, 
                     postController.findOwn);
 
@@ -48,12 +50,7 @@ router.patch("/visibility/:identifier", authentication,
                                         postController.togglePostVisibility
 );
 
-router.patch("/like/:identifier",   authentication,
-                                    authorization(ROLES.USER, ROLES.ADMIN),
-                                    postValidators.findPostByIdValidator,
-                                    runValidations,
-                                    postController.togglePostLike
-);
+
 
 router.patch("/save/:identifier",   authentication,
                                     authorization(ROLES.USER, ROLES.ADMIN),

@@ -51,21 +51,9 @@ const PostSchema = new Schema(
 
 
 
-    nextMaintenance:{
+    lastMaintenance:{
         type: Date,
         trim: true, 
-        requiere: false
-    },
-
-    lastOilChange:{
-        type: Date,
-        trim: true,
-        requiere: false
-    },
-
-    lastCoolantChange:{
-        type: Date,
-        trim: true,
         requiere: false
     },
 
@@ -81,9 +69,26 @@ const PostSchema = new Schema(
         requiere: false
     },
 
+
+    lastOilChange:{
+        type: Date,
+        trim: true,
+        requiere: false
+    },
+
+
+
+    lastCoolantChange:{
+        type: Date,
+        trim: true,
+        requiere: false
+    },
+   
+
     errorRecord:{
         type: [String],
-        default: []
+        default: [],
+        requiere: false
 
     },
     
