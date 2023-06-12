@@ -4,6 +4,11 @@ const Schema = Mongoose.Schema;
 
 const PostSchema = new Schema(
 { 
+    id:{
+        type: String,
+        trim: true,
+        required: false
+    },
     vin:{
         type: String,
         trim: true,
