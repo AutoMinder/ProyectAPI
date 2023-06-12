@@ -3,6 +3,7 @@ const {body, param} =require ("express-validator");
 const validators = {};
 
 validators.createPostValidator = [
+    body("id"),
     body("vin"),
     body("car_name")
         .notEmpty()
