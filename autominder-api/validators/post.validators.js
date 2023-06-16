@@ -20,15 +20,12 @@ validators.createPostValidator = [
     body("kilometers")
         .notEmpty()
             .withMessage("Not null kilometers"),
-    body("kilometersDate")
+    body("lastOilChange")
         .notEmpty()
-            .withMessage("Not null kilometersDate"),
-
-
-
-    body("nextMaintenance"),
-    body("lastOilChange"),
-    body("lastCoolantChange"),
+            .withMessage("Not null lastOilChange"),
+    body("lastCoolantChange")
+        .notEmpty()
+            .withMessage("Not null lastCoolantChange"),
     body("mayorTuning"),
     body("minorTuning"),
     body("errorRecord"),

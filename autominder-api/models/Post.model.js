@@ -45,38 +45,32 @@ const PostSchema = new Schema(
         requiere: true
     },
 
-    kilometersDate:{
-        type: Date,
-        trim: true,
-        requiere: false
-    },
-
 
     /////
 
 
 
     lastMaintenance:{
-        type: Date,
+        type: String,
         trim: true, 
         requiere: false
     },
 
     mayorTuning:{
-        type: Date,
+        type: String,
         trim: true,
         requiere: false
     },
 
     minorTuning:{
-        type: Date,
+        type: String,
         trim: true,
         requiere: false
     },
 
 
     lastOilChange:{
-        type: Date,
+        type: String,
         trim: true,
         requiere: false
     },
@@ -84,7 +78,7 @@ const PostSchema = new Schema(
 
 
     lastCoolantChange:{
-        type: Date,
+        type: String,
         trim: true,
         requiere: false
     },
