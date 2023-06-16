@@ -6,7 +6,7 @@ const controller = {};
 
 controller.create = async (req, res) => {
     try{
-        const {id, vin, car_name, brand, model, year, lastMaintenance, kilometers, kilometersDate, lastOilChange, lastCoolantChange, mayorTuning, minorTuning, errorRecord} = req.body;
+        const {id, vin, car_name, brand, model, year, lastMaintenance, kilometers, lastOilChange, lastCoolantChange, mayorTuning, minorTuning, errorRecord} = req.body;
 
         const { _id: userId } = req.user; //    Se asume la existencia del usuario dada las verificaciones 
         // debug(`Creating post for user ${username}`); Eliminacion por parte de Douglas por error de servidor
@@ -24,8 +24,7 @@ controller.create = async (req, res) => {
             lastMaintenance: lastMaintenance,
     
             kilometers: kilometers,
-            kilometersDate: kilometersDate,
-
+    
 
             lastOilChange: lastOilChange,
 
