@@ -43,6 +43,13 @@ router.post("/",
     runValidations,  
     postController.create);
 
+router.post("/update",
+    authentication,
+    authorization(ROLES.USER, ROLES.ADMIN),
+    postValidators.createPostValidator,
+    runValidations,  
+    postController.postUpdate);
+
 router.patch("/visibility/:identifier", authentication,
                                         authorization(ROLES.USER, ROLES.ADMIN),
                                         postValidators.findPostByIdValidator,

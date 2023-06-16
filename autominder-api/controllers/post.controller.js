@@ -195,6 +195,47 @@ controller.togglePostVisibility = async (req, res) => {
 };
 
 
+controller.postUpdate = async (req, res) => {
+    try {
+        const { identifier: postId } = req.params;
+
+        const { _id: userId } = req.user;
+
+        const {id, vin, car_name, brand, model, year, lastMaintenance, kilometers, lastOilChange, lastCoolantChange, mayorTuning, minorTuning, errorRecord} = req.body;
+
+        const post = await Post.findOne({ _id: postId, user: userId });
+
+        post.id = id;
+        post.vin = vin;
+        post.car_name = car_name;
+        post.brand = brand;
+        post.model = model;
+        post.year = year;
+        post.lastMaintenance = lastMaintenance;
+        post.kilometers = kilometers;
+        post.lastOilChange = lastOilChange;
+        post.lastCoolantChange = lastCoolantChange;
+        post.mayorTuning = mayorTuning;
+        post.minorTuning = minorTuning;
+        post.errorRecord = errorRecord;
+
+        if(!post)
+        {
+            return res.status(404).json({ error: "Post no encontrado "});
+        }
+
+        await post.save();
+
+        return res.status(200).json({ message: "Post actualizado exitosamente!" });
+
+    } catch (error) {
+        debug({error});
+        return res.status(500).json({ message: 'Error interno de servidor(togglePostUpdate)' });
+    }
+
+}
+
+
 controller.toggleSavedPosts = async (req, res) => {
     try {
         const { identifier: postId } = req.params;
