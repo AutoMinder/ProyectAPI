@@ -43,7 +43,7 @@ router.post("/",
     runValidations,  
     postController.create);
 
-router.post("/update",
+router.post("/update/:identifier",
     authentication,
     authorization(ROLES.USER, ROLES.ADMIN),
     postValidators.createPostValidator,
