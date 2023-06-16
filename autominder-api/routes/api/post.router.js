@@ -4,9 +4,6 @@ const router = express.Router();
 
 const ROLES = require("../../data/roles.constants.json");
 
-//Usada antes con datos quemados
-const posts = require('../../data/posts.example.json');
-
 const postController = require('../../controllers/post.controller');
 
 const postValidators = require('../../validators/post.validators');
