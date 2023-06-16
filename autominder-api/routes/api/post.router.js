@@ -45,9 +45,7 @@ router.post("/",
 
 router.post("/update/:identifier",
     authentication,
-    authorization(ROLES.USER, ROLES.ADMIN),
-    postValidators.createPostValidator,
-    runValidations,  
+    authorization(ROLES.USER, ROLES.ADMIN), 
     postController.postUpdate);
 
 router.patch("/visibility/:identifier", authentication,
