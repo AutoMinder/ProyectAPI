@@ -4,6 +4,7 @@ const router = express.Router();
 
 const ROLES = require("../../data/roles.constants.json");
 
+
 const postController = require('../../controllers/post.controller');
 
 const postValidators = require('../../validators/post.validators');
@@ -53,13 +54,6 @@ router.patch("/visibility/:identifier", authentication,
 );
 
 
-
-router.patch("/save/:identifier",   authentication,
-                                    authorization(ROLES.USER, ROLES.ADMIN),
-                                    postValidators.findPostByIdValidator,
-                                    runValidations,
-                                    postController.toggleSavedPosts
-);
 
 
 module.exports = router;
