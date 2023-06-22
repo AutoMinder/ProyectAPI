@@ -5,7 +5,6 @@ const router = express.Router();
 const ROLES = require("../../data/roles.constants.json");
 
 //Usada antes con datos quemados
-const posts = require('../../data/posts.example.json');
 
 const postController = require('../../controllers/post.controller');
 
@@ -56,13 +55,6 @@ router.patch("/visibility/:identifier", authentication,
 );
 
 
-
-router.patch("/save/:identifier",   authentication,
-                                    authorization(ROLES.USER, ROLES.ADMIN),
-                                    postValidators.findPostByIdValidator,
-                                    runValidations,
-                                    postController.toggleSavedPosts
-);
 
 
 module.exports = router;

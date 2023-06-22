@@ -90,6 +90,8 @@ controller.findAllHidden = async (req, res) => {
 controller.findOwn = async (req, res) => {
     try {
         
+
+        
         const { _id: userId } = req.user;
 
         const posts = await Post
@@ -151,14 +153,23 @@ controller.findOneById = async (req, res) => {
 
 controller.getOwnSavedPosts = async (req, res) => {
     try {
-        
+
         const { _id } = req.user;
 
-        const user = await User.findById(_id)
-                        .populate("savedPosts");
-                        
+        const page = parseInt(req.query.page) || 1; // Obtener el número de página de los parámetros de consulta
 
-        return res.status(200).json({ posts: user.savedPosts.filter(post => !post.hidden) });
+        const limit = parseInt(req.query.limit) || 2; // Establecer un límite de elementos por página (por defecto 10)
+
+        const count = await Post.countDocuments({ hidden: false }); // Contar el número de elementos en la colección de los posts, es decir autos guardados
+
+        const user = await User.findById(_id)
+            .skip((page - 1) * limit) // Saltar los documentos anteriores según la página y el límite
+            .limit(limit) // Limitar el número de documentos por página
+            .populate("savedPosts"); 
+
+        const totalPages = Math.ceil(count / limit); // Calcular el número total de páginas
+
+        return res.status(200).json({ posts: user.savedPosts.filter(post => !post.hidden), totalPages, currentPage: page });
 
     } catch (error) {
         
@@ -236,35 +247,6 @@ controller.postUpdate = async (req, res) => {
 }
 
 
-controller.toggleSavedPosts = async (req, res) => {
-    try {
-        const { identifier: postId } = req.params;
-        const { user } = req;
 
-        const post = await Post.findOne({ _id: postId, hidden: false });
-
-        if(!post)
-        {
-            return res.status(404).json({ error: "Post no encontrado "});
-        }
-
-        const index = user.savedPosts.findIndex( _postId => _postId.equals(postId));
-
-        if(index >= 0 ){
-            user.savedPosts = user.savedPosts.filter(_postId => !_postId.equals(postId));
-        }
-        else {
-            user.savedPosts = [ ...user.savedPosts, postId ];
-        }
-
-        await user.save();
-        
-        return res.status(200).json({ message: "Post guardado exitosamente!" });
-
-    } catch (error) {
-        debug({error});
-        return res.status(500).json({ message: 'Error interno de servidor (toggleSavedPosts)' });
-    }
-}
 
 module.exports = controller;

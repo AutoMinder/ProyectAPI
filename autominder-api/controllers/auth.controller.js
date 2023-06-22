@@ -19,7 +19,7 @@ controller.register = async (req, res) => {
             return res.status(409).json({message: 'User already exists'});
         }
 
-        debug({username, email, password});
+        debug({username, email});
 
         //Form de encriptar
 
