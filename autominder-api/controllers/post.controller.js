@@ -91,15 +91,25 @@ controller.findOwn = async (req, res) => {
     try {
         
 
-        
+        const page = parseInt(req.query.page) || 1; // Obtener el número de página de los parámetros de consulta
+
+        const limit = parseInt(req.query.limit) || 2; // Establecer un límite de elementos por página (por defecto 10)
+
+        const count = await Post.countDocuments({ hidden: false }); // Contar el número de elementos en la colección de los posts, es decir autos guardados
+
+
         const { _id: userId } = req.user;
 
         const posts = await Post
                         .find({ user: userId })
-                        .populate("user", "username email")
+                        .skip((page - 1) * limit) // Saltar los documentos anteriores según la página y el límite
+                        .limit(limit) // Limitar el número de documentos por página
+                        .populate("user", "username email");
+
+        const totalPages = Math.ceil(count / limit); // Calcular el número total de páginas
                         
 
-        return res.status(200).json({ posts });
+        return res.status(200).json({ posts, totalPages, currentPage: page  });
 
     } catch (error) {
         
@@ -156,20 +166,11 @@ controller.getOwnSavedPosts = async (req, res) => {
 
         const { _id } = req.user;
 
-        const page = parseInt(req.query.page) || 1; // Obtener el número de página de los parámetros de consulta
-
-        const limit = parseInt(req.query.limit) || 2; // Establecer un límite de elementos por página (por defecto 10)
-
-        const count = await Post.countDocuments({ hidden: false }); // Contar el número de elementos en la colección de los posts, es decir autos guardados
-
+    
         const user = await User.findById(_id)
-            .skip((page - 1) * limit) // Saltar los documentos anteriores según la página y el límite
-            .limit(limit) // Limitar el número de documentos por página
             .populate("savedPosts"); 
 
-        const totalPages = Math.ceil(count / limit); // Calcular el número total de páginas
-
-        return res.status(200).json({ posts: user.savedPosts.filter(post => !post.hidden), totalPages, currentPage: page });
+        return res.status(200).json({ posts: user.savedPosts.filter(post => !post.hidden)});
 
     } catch (error) {
         
