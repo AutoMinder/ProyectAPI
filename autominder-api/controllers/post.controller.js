@@ -93,12 +93,12 @@ controller.findOwn = async (req, res) => {
 
         const page = parseInt(req.query.page) || 1; // Obtener el número de página de los parámetros de consulta
 
-        const limit = parseInt(req.query.limit) || 2; // Establecer un límite de elementos por página (por defecto 10)
-
-        const count = await Post.countDocuments({ hidden: false }); // Contar el número de elementos en la colección de los posts, es decir autos guardados
-
+        const limit = parseInt(req.query.limit) || 2; // Establecer un límite de elementos por página (por defecto 2)
 
         const { _id: userId } = req.user;
+
+        const count = await Post.countDocuments({ user: userId, hidden: false }); // Contar el número de elementos en la colección de los posts, es decir autos guardados
+
 
         const posts = await Post
                         .find({ user: userId })
