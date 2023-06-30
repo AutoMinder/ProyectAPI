@@ -95,7 +95,7 @@ controller.whoami = async (req, res) => {
 
 controller.findAllUsers = async (req, res) => {
     try{
-        const users = await User.find({roles : ROLES.USER, roles: ROLES.ADMIN});
+        const users = await User.find({roles: ROLES.ADMIN});
 
         return res.status(200).json({users});
 
@@ -105,7 +105,17 @@ controller.findAllUsers = async (req, res) => {
     }
 };
 
+controller.findAllUsersU = async (req, res) => {
+    try{
+        const users = await User.find({roles : ROLES.USER});
 
+        return res.status(200).json({users});
+
+    }catch(error){
+        debug({error});
+        return res.status(500).json({message: "Error getting all users"});
+    }
+};
 
 controller.toggleUserRoles = async (req, res) => {
     try {

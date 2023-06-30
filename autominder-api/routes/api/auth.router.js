@@ -24,6 +24,10 @@ router.get("/whoami", authentication, authController.whoami);
 
 router.get("/allusers", authController.findAllUsers);
 
+router.get("/allusersu", authController.findAllUsersU);
+
+
+
 router.patch("/updateusers/:identifier", authentication, 
                                         authorization(ROLES.SYS_ADMIN, ROLES.ADMIN),
                                         authController.toggleUserRoles);
