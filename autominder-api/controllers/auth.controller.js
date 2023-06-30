@@ -118,10 +118,10 @@ controller.toggleUserRoles = async (req, res) => {
             return res.status(404).json({ error: "Usuario no encontrado "});
         }
 
-        if(user.roles == ROLES.ADMIN){
-            user.roles = [ROLES.USER];
+        if(user.roles == "admin"){
+            user.roles = "user";
         }else{
-            user.roles = [ROLES.ADMIN];
+            user.roles = "admin";
         }
 
         await user.save();
