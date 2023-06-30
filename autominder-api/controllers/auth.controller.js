@@ -92,4 +92,47 @@ controller.whoami = async (req, res) => {
     }
 }
 
+
+controller.findAllUsers = async (req, res) => {
+    try{
+        const users = await User.find({roles : ROLES.USER, roles: ROLES.ADMIN});
+
+        return res.status(200).json({users});
+
+    }catch(error){
+        debug({error});
+        return res.status(500).json({message: "Error getting all users"});
+    }
+};
+
+
+
+controller.toggleUserRoles = async (req, res) => {
+    try {
+        const { identifier: userID } = req.params;
+
+        const user = await User.findOne({ _id: userID });
+
+        if(!user)
+        {
+            return res.status(404).json({ error: "Usuario no encontrado "});
+        }
+
+        if(user.roles == ROLES.ADMIN){
+            user.roles = [ROLES.USER];
+        }else{
+            user.roles = [ROLES.ADMIN];
+        }
+
+        await user.save();
+
+        return res.status(200).json({ message: "Usuario actualizado exitosamente!" });
+
+    } catch (error) {
+        debug({error});
+        return res.status(500).json({ message: 'Error interno de servidor(toggleUserRoles)' });
+    }
+};
+
+
 module.exports = controller;

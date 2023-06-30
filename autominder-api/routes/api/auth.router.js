@@ -1,5 +1,7 @@
 const Express = require('express');
 
+const ROLES = require("../../data/roles.constants.json");
+
 const router = Express.Router();
 
 const authController = require('../../controllers/auth.controller');
@@ -8,7 +10,7 @@ const runValidation = require('../../validators/index.middleware');
 
 const {register} = require('../../validators/auth.validator');
 
-const { authentication } = require("../../middlewares/auth.middlewares");
+const { authentication, authorization } = require("../../middlewares/auth.middlewares");
 
 router.post("/signup",
     register,
@@ -18,6 +20,12 @@ router.post("/signup",
 
 router.post("/signin", authController.login);
 
-router.get("/whoami", authentication, authController.whoami)
+router.get("/whoami", authentication, authController.whoami);
+
+router.get("/allusers", authController.findAllUsers);
+
+router.patch("/updateusers:identifier", authentication, 
+                                        authorization(ROLES.SYS_ADMIN, ROLES.ADMIN),
+                                        authController.updateUsers);
 
 module.exports = router;
