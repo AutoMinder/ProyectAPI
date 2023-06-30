@@ -26,6 +26,6 @@ router.get("/allusers", authController.findAllUsers);
 
 router.patch("/updateusers:identifier", authentication, 
                                         authorization(ROLES.SYS_ADMIN, ROLES.ADMIN),
-                                        authController.updateUsers);
+                                        authController.toggleUserRoles);
 
 module.exports = router;
